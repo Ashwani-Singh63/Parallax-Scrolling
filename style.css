@@ -1,0 +1,120 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.align-centre {      /*  @mixin align-centre*/
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-size: 4em; */
+    color: rgb(239, 201, 201);
+}
+
+.parallax-wrapper {
+    /* position: relative; */
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 300px;
+}
+
+.intro-screen {
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    /* @include aligh-centre; */
+}
+
+.parallax-group {
+    position: relative;
+    height: 100vh;
+    transform-style: preserve-3d;
+
+}
+
+.parallax-layer {
+    position: absolute;
+    inset: 0;
+}
+
+.parallax-layer > h1 {
+    font-weight: bolder;
+    font-size: 20rem;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: rgb(11, 116, 168);
+}
+
+.base-layer {
+    /* scale calculation : 1 + ( ( Z transform value * 1 ) / perspective ) */
+    transform: translateZ( -300px ) scale( 2 );
+    background-image: url(./sources/naruto-2.jpg);
+}
+
+.mid-layer {
+    transform: translateZ( 0 );
+}
+
+.mid-layer-img {
+    background-image: url(./sources/hinata.jpg);
+    background-size: cover;
+}
+
+.top-layer {
+    transform: translateZ( 210px ) scale( 0.3 );
+}
+
+#intro{
+    z-index: 1;
+    background-image: url(./sources/naruto-1.jpg) ;
+}
+
+#intro > h1{
+    font-weight: bolder;
+    font-size: 15rem;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: rgb(11, 116, 168);
+}
+
+#group-1 {
+    z-index: 0;
+}
+
+#group-1 > .base-layer{
+    background-color: crimson;
+}
+
+#group-2 {
+    z-index: 1;
+}
+
+#group-2 > .mid-layer {
+    background-color: yellowgreen;
+}
+
+#outro {
+    z-index: 01;
+    background-image: url(./sources/12676.jpg);
+}
+
+#outro > h1 {
+    font-weight: bolder;
+    font-size: 20rem;
+    /* text-align: end; */
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: rgb(246, 242, 242);
+}
+
+.outro-screen {
+    height: 100vh;
+    background-color: teal;
+    /* @include aligh-centre; */
+}
